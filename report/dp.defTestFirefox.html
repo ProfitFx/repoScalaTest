@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+      <head>
+        <title>ScalaTest Suite dp.defTestFirefox Results</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta http-equiv="Expires" content="-1"/>
+        <meta http-equiv="Pragma" content="no-cache"/>
+        <link href="css/styles.css" rel="stylesheet"/>
+        
+        <script type="text/javascript">
+          function toggleDetails(contentId, linkId) {
+  var ele = document.getElementById(contentId);
+  var text = document.getElementById(linkId);
+  if(ele.style.display == "block") {
+    ele.style.display = "none";
+    text.innerHTML = "(Show Details)";
+  }
+  else {
+    ele.style.display = "block";
+    text.innerHTML = "(Hide Details)";
+  }
+}
+function hideOpenInNewTabIfRequired() {
+  if (top === self) { document.getElementById('printlink').style.display = 'none'; }
+}
+
+        </script>
+      </head>
+      <body class="specification">
+        <div id="suite_header_name">defTestFirefox</div>
+        <div id="suite_header_statistic_failed">
+          Tests: total 3, succeeded 2, failed 1, canceled 0, ignored 0, pending 0
+        </div>
+        <div id="cacaaf09-a5d1-44ea-84cf-019f04076603" class="test_passed" style="margin-left: 0px;">
+      <dl>
+        <dt>Заголовок главной страницы должен быть корректным</dt>
+      </dl>
+    </div><div id="946cb183-bd99-4bd5-b15e-60fd3d503363" class="test_passed" style="margin-left: 0px;">
+      <dl>
+        <dt>Заголовок страницы, на которую делается переход должен быть корректным</dt>
+      </dl>
+    </div><div id="e98bdb4e-9bee-429a-a074-f403a2d89cb5" class="test_failed" style="margin-left: 0px;">
+      <dl>
+        <dt>НА странице должен быть корректный текст *** FAILED ***</dt>
+      </dl>
+      <div class="detailstoggle">
+      <a id="11f251c1-127c-4307-9d8f-f86d21e2a01a" href="javascript:toggleDetails('cb35f309-6f14-4bc1-a02c-c9c3c1f6ea8c', '11f251c1-127c-4307-9d8f-f86d21e2a01a');">(Show Details)</a>
+      </div>
+      <div id="cb35f309-6f14-4bc1-a02c-c9c3c1f6ea8c" style="display: none">
+        <table>
+          <tr valign="top">
+              <td align="left"><span class="label">Message:</span></td>
+              <td align="left"><span>None was not equal to &quot;Реестр&quot;</span></td>
+            </tr>
+          <tr valign="top"><td align="left"><span class="label">Line:</span></td><td align="left"><span>(defTest.scala:55)</span></td></tr>
+          <tr valign="top"><td align="right"><span class="label">Exception:</span></td><td align="left">org.scalatest.exceptions.TestFailedException</td></tr>
+        </table>
+        <table>
+          <tr valign="top"><td align="left" colspan="2">
+            <div class="gray">org.scalatest.MatchersHelper$.newTestFailedException(MatchersHelper.scala:164)</div><div class="gray">org.scalatest.Matchers$ShouldMethodHelper$.shouldMatcher(Matchers.scala:6561)</div><div class="gray">org.scalatest.Matchers$AnyShouldWrapper.should(Matchers.scala:6598)</div>
+            <div>dp.defTestFirefox$$anonfun$3.apply$mcV$sp(defTest.scala:55)</div><div>dp.defTestFirefox$$anonfun$3.apply(defTest.scala:55)</div><div>dp.defTestFirefox$$anonfun$3.apply(defTest.scala:55)</div><div>org.scalatest.FreeSpecRegistration$class.transformToOutcomeParam$1(FreeSpecRegistration.scala:143)</div><div>org.scalatest.FreeSpecRegistration$$anonfun$org$scalatest$FreeSpecRegistration$$registerTestToRun$2.apply(FreeSpecRegistration.scala:144)</div><div>org.scalatest.TestRegistration$$anonfun$transformToOutcome$1$$anonfun$apply$1.apply$mcV$sp(TestRegistration.scala:39)</div><div>org.scalatest.OutcomeOf$class.outcomeOf(OutcomeOf.scala:85)</div><div>org.scalatest.OutcomeOf$.outcomeOf(OutcomeOf.scala:104)</div><div>org.scalatest.TestRegistration$$anonfun$transformToOutcome$1.apply(TestRegistration.scala:39)</div><div>org.scalatest.TestRegistration$$anonfun$transformToOutcome$1.apply(TestRegistration.scala:37)</div><div>org.scalatest.FreeSpecRegistration$$anon$1.apply(FreeSpecRegistration.scala:430)</div><div>org.scalatest.Suite$class.withFixture(Suite.scala:1023)</div><div>org.scalatest.FreeSpec.withFixture(FreeSpec.scala:1740)</div><div>org.scalatest.FreeSpecRegistration$class.invokeWithFixture$1(FreeSpecRegistration.scala:427)</div><div>org.scalatest.FreeSpecRegistration$$anonfun$runTest$1.apply(FreeSpecRegistration.scala:440)</div><div>org.scalatest.FreeSpecRegistration$$anonfun$runTest$1.apply(FreeSpecRegistration.scala:440)</div><div>org.scalatest.SuperEngine.runTestImpl(Engine.scala:289)</div><div>org.scalatest.FreeSpecRegistration$class.runTest(FreeSpecRegistration.scala:440)</div><div>org.scalatest.FreeSpec.runTest(FreeSpec.scala:1740)</div><div>org.scalatest.FreeSpecRegistration$$anonfun$runTests$1.apply(FreeSpecRegistration.scala:499)</div><div>org.scalatest.FreeSpecRegistration$$anonfun$runTests$1.apply(FreeSpecRegistration.scala:499)</div><div>org.scalatest.SuperEngine$$anonfun$traverseSubNodes$1$1.apply(Engine.scala:432)</div><div>org.scalatest.SuperEngine$$anonfun$traverseSubNodes$1$1.apply(Engine.scala:420)</div><div>scala.collection.immutable.List.foreach(List.scala:381)</div><div>org.scalatest.SuperEngine.traverseSubNodes$1(Engine.scala:420)</div><div>org.scalatest.SuperEngine.org$scalatest$SuperEngine$$runTestsInBranch(Engine.scala:415)</div><div>org.scalatest.SuperEngine.runTestsImpl(Engine.scala:497)</div><div>org.scalatest.FreeSpecRegistration$class.runTests(FreeSpecRegistration.scala:499)</div><div>org.scalatest.FreeSpec.runTests(FreeSpec.scala:1740)</div><div>org.scalatest.Suite$class.run(Suite.scala:1312)</div><div>org.scalatest.FreeSpec.org$scalatest$FreeSpecRegistration$$super$run(FreeSpec.scala:1740)</div><div>org.scalatest.FreeSpecRegistration$$anonfun$run$1.apply(FreeSpecRegistration.scala:544)</div><div>org.scalatest.FreeSpecRegistration$$anonfun$run$1.apply(FreeSpecRegistration.scala:544)</div><div>org.scalatest.SuperEngine.runImpl(Engine.scala:556)</div><div>org.scalatest.FreeSpecRegistration$class.run(FreeSpecRegistration.scala:544)</div><div>org.scalatest.FreeSpec.run(FreeSpec.scala:1740)</div><div>org.scalatest.tools.Framework.org$scalatest$tools$Framework$$runSuite(Framework.scala:459)</div><div>org.scalatest.tools.Framework$ScalaTestTask.execute(Framework.scala:677)</div><div>sbt.TestRunner.runTest$1(TestFramework.scala:76)</div><div>sbt.TestRunner.run(TestFramework.scala:85)</div><div>sbt.TestFramework$$anon$2$$anonfun$$init$$1$$anonfun$apply$8.apply(TestFramework.scala:202)</div><div>sbt.TestFramework$$anon$2$$anonfun$$init$$1$$anonfun$apply$8.apply(TestFramework.scala:202)</div><div>sbt.TestFramework$.sbt$TestFramework$$withContextLoader(TestFramework.scala:185)</div><div>sbt.TestFramework$$anon$2$$anonfun$$init$$1.apply(TestFramework.scala:202)</div><div>sbt.TestFramework$$anon$2$$anonfun$$init$$1.apply(TestFramework.scala:202)</div><div>sbt.TestFunction.apply(TestFramework.scala:207)</div><div>sbt.Tests$$anonfun$9.apply(Tests.scala:216)</div><div>sbt.Tests$$anonfun$9.apply(Tests.scala:216)</div><div>sbt.std.Transform$$anon$3$$anonfun$apply$2.apply(System.scala:44)</div><div>sbt.std.Transform$$anon$3$$anonfun$apply$2.apply(System.scala:44)</div><div>sbt.std.Transform$$anon$4.work(System.scala:63)</div><div>sbt.Execute$$anonfun$submit$1$$anonfun$apply$1.apply(Execute.scala:226)</div><div>sbt.Execute$$anonfun$submit$1$$anonfun$apply$1.apply(Execute.scala:226)</div><div>sbt.ErrorHandling$.wideConvert(ErrorHandling.scala:17)</div><div>sbt.Execute.work(Execute.scala:235)</div><div>sbt.Execute$$anonfun$submit$1.apply(Execute.scala:226)</div><div>sbt.Execute$$anonfun$submit$1.apply(Execute.scala:226)</div><div>sbt.ConcurrentRestrictions$$anon$4$$anonfun$1.apply(ConcurrentRestrictions.scala:159)</div><div>sbt.CompletionService$$anon$2.call(CompletionService.scala:28)</div><div>java.util.concurrent.FutureTask.run(Unknown Source)</div><div>java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source)</div><div>java.util.concurrent.FutureTask.run(Unknown Source)</div><div>java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)</div><div>java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)</div><div>java.lang.Thread.run(Unknown Source)</div>
+            </td>
+          </tr>
+        </table>
+        
+      </div>
+    </div>
+        <table id="suite_footer">
+          <tr id="suite_footer_id">
+            <td id="suite_footer_id_label_failed">Suite ID</td>
+            <td id="suite_footer_id_value" colspan="5">dp.defTestFirefox</td>
+          </tr>
+          <tr id="suite_footer_class">
+            <td id="suite_footer_class_label_failed">Class name</td>
+            <td id="suite_footer_class_value" colspan="5">dp.defTestFirefox</td>
+          </tr>
+          <tr id="suite_footer_duration">
+            <td id="suite_footer_duration_label_failed">Total duration</td>
+            <td id="suite_footer_duration_value" colspan="2">
+              3 seconds, 720 milliseconds
+              </td>
+          </tr>
+        </table>
+           <div id="printlink">(<a href="dp.defTestFirefox.html" target="_blank">Open defTestFirefox in new tab</a>)</div>
+      </body>
+      <script type="text/javascript">
+        hideOpenInNewTabIfRequired();
+      </script>
+    </html>
