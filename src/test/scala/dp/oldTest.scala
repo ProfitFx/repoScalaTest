@@ -19,3 +19,35 @@ import org.scalatest.selenium.{HtmlUnit, WebBrowser}
       pageTitle should be ("ScalaTest")
     }
 }*/
+
+/*class BlogSpec extends FlatSpec with Matchers with HtmlUnit {
+
+  val host = "https://rseds.eurasiancommission.org/ru/#/"
+
+  "Заголовок главной страницы" should "должен быть корректным" in {
+    go to (host + "registry-main")
+    pageTitle should be ("Реестр структур электронных документов и сведений")
+  }
+
+  /*"Заголовок страницы, на которую делается переход" should "должен быть корректным" in {
+    click on linkText("Реестр")
+    pageTitle should be("Реестр структур электронных документов и сведений")
+  }*/
+}*/
+
+
+/*class defTest extends FlatSpec with Matchers with WebBrowser {
+
+  implicit val webDriver: WebDriver = new HtmlUnitDriver
+  val host = "https://rseds.eurasiancommission.org/ru/#/"
+
+  "Заголовок главной страницы" should "должен быть корректным" in {
+    go to (host + "registry-main")
+    pageTitle should be ("Реестр структур электронных документов и сведений")
+  }
+  "Заголовок страницы, на которую делается переход" should "должен быть корректным" in {
+   // click on xpath("//li[2]/a")
+    click on partialLinkText("Реестр")
+    pageTitle should be("Реестр структур электронных документов и сведений")
+  }
+}*/
