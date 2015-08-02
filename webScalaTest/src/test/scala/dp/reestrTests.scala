@@ -23,6 +23,9 @@ import com.typesafe.config.ConfigFactory
 class reestrTests  extends FreeSpec with Matchers with WebBrowser with Eventually {
 
   val conf = ConfigFactory.load()
+  val timeLimit = (Span(2000, Millis))
+  
+  // failAfter(10 millis){pageTitle should be ("Модель общих процессов")} - fail after 10 millis
 
   implicit override val patienceConfig =
     PatienceConfig(timeout = scaled(Span(10, Seconds)), interval = scaled(Span(5, Millis)))
@@ -40,18 +43,18 @@ class reestrTests  extends FreeSpec with Matchers with WebBrowser with Eventuall
     click on partialLinkText("Области охвата")
     pageTitle should be ("Модель общих процессов")
   }
-  "НА странице \"Области охвата\" должен быть корректный текст" in {
+  "На странице \"Области охвата\" должен быть корректный текст" in {
     eventually{find(xpath("//*[@id=\"ng-app\"]/body/div[1]/div[1]/data-ng-include[1]/div/div/h1")).get.text should be("Области охвата")}
   }
-  "НА странице \"Модель\" должен быть корректный текст" in {
+  "На странице \"Модель\" должен быть корректный текст" in {
     click on partialLinkText("Модель")
     eventually{find(xpath("//*[@id=\"ng-app\"]/body/div[1]/data-ng-include/div/div/div/div/ul/li[1]/span/strong")).get.text should be("Модель")}
   }
-  "НА странице \"Интерактивная модель\" должен быть корректный текст" in {
+  "На странице \"Интерактивная модель\" должен быть корректный текст" in {
     click on partialLinkText("Интерактивная модель")
     eventually{find(xpath("//*[@id=\"ng-app\"]/body/div[1]/data-ng-include/div/div/div/div/ul/li[2]/span/strong")).get.text should be("Интерактивная модель")}
   }
-  "НА странице \"Репозиторий\" должен быть корректный текст" in {
+  "На странице \"Репозиторий\" должен быть корректный текст" in {
     click on partialLinkText("Репозиторий")
     eventually{find(xpath("//*[@id=\"ng-app\"]/body/div[1]/data-ng-include/div/div/div/div/ul/li[3]/span/strong")).get.text should be("Репозиторий")}
   }
