@@ -1,4 +1,4 @@
-name := "repoScalaTest"
+name := "webScalaTest"
 
 version := "1.0"
 
