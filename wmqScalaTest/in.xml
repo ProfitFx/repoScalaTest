@@ -1,33 +1,22 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope">
+<?xml version="1.0" encoding="UTF-8"?>
+<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:int="urn:EEC:Interaction:v1.0" xmlns:wsa="http://www.w3.org/2005/08/addressing">
 	<soap:Header>
-		<wsa:To xmlns:wsa="http://www.w3.org/2005/08/addressing"/>
-		<wsa:From xmlns:wsa="http://www.w3.org/2005/08/addressing">
-			<wsa:Address>EAEU://AM/SR/LEGACY/AKF</wsa:Address>
-			<!--${__UUID}-->
-			<!--${__UUID}-->
-			<!--${__UUID}-->
-			<!--${__UUID}-->
-		</wsa:From>
-		<wsa:MessageID xmlns:wsa="http://www.w3.org/2005/08/addressing">urn:uuid:9bae9e1c-22eb-438e-8306-8d74db0181d0</wsa:MessageID>
-		<wsa:Action xmlns:wsa="http://www.w3.org/2005/08/addressing">int://LEGACY/AKF/MESSAGE/result</wsa:Action>
-		<int:Integration xmlns:int="urn:EEC:Interaction:v1.0">
-			<int:TrackID>urn:uuid:12bd71a9-e347-4713-baac-46c70423b8ad + Русский текст</int:TrackID>
-			<int:AcceptTime>2015-03-19T07:44:47.068Z</int:AcceptTime>
-		</int:Integration>
+		<wsa:MessageID>urn:uuid:${__UUID}</wsa:MessageID>
+		<wsa:To>EAEU://EEC/CP/P.MM.01/P.ACT.001</wsa:To>
+		<wsa:ReplyTo>
+			<wsa:Address>EAEU://BY/CP/P.MM.01/P.MM.01.ACT.001</wsa:Address>
+		</wsa:ReplyTo>
+		<wsa:Action>int://CP/P.MM.01/0.1/P.MM.01.PRC.004/P.MM.01.TRN.004/P.MM.01.MSG.005</wsa:Action>
+		<int:ProcedureID>urn:uuid:${__UUID}</int:ProcedureID>
+		<int:ConversationID>urn:uuid:${__UUID}</int:ConversationID>
 	</soap:Header>
-	<soap:Body>
-		<akr:AKF_Result xmlns:akr="AKF_Result">
-			<akr:MsgID>ff31e5b4-5e0a-449a-b45a-5afd36f74afe</akr:MsgID>
-			<akr:IISVVT_ID>urn:uuid:ca491075-d45c-4a90-b4f6-c451a6616358</akr:IISVVT_ID>
-			<akr:Part_ID>4142e45f-ad5f-4279-8819-17b45caaf4c1</akr:Part_ID>
-			<akr:ReceiveDate>2015-03-19T07:44:47.068Z</akr:ReceiveDate>
-			<akr:Status>100</akr:Status>
-			<akr:ErrorDescription/>
-			<akr:FileName>GTK_29.txt</akr:FileName>
-			<akr:FileSize>4197</akr:FileSize>
-			<akr:FileSender/>
-			<akr:FileReceiver>RU</akr:FileReceiver>
-		</akr:AKF_Result>
+	<soap:Body><doc:ResourceStatusDetails xsi:schemaLocation="urn:EEC:R:ResourceStatusDetails:v0.4.2 EEC_R_ResourceStatusDetails_v0.4.2.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ccdo="urn:EEC:M:ComplexDataObjects:v0.4.2" xmlns:csdo="urn:EEC:M:SimpleDataObjects:v0.4.2" xmlns:doc="urn:EEC:R:ResourceStatusDetails:v0.4.2">
+		<ccdo:EDocHeader>
+			<csdo:InfEnvelopeCode>P.MM.01.MSG.005</csdo:InfEnvelopeCode>
+			<csdo:EDocCode>R.007</csdo:EDocCode>
+			<csdo:EDocId>${__UUID}</csdo:EDocId>
+			<csdo:EDocDateTime>2015-01-10T09:30:47Z</csdo:EDocDateTime>
+		</ccdo:EDocHeader>
+	</doc:ResourceStatusDetails>
 	</soap:Body>
 </soap:Envelope>

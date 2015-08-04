@@ -1,46 +1,30 @@
 package dp
 
 import java.io._
-import java.net.URL
-import java.nio.file.Path
 import java.util.UUID
 import javax.jms.Session
 
 
 
-import com.ibm.jms.{JMSMessage, JMSTextMessage}
+import com.ibm.jms.{JMSBytesMessage, JMSMessage, JMSTextMessage}
 import com.ibm.mq.jms._
 
 import com.typesafe.config.ConfigFactory
 
 import scala.io.Source
 
+import org.scalatest.time._
+import org.scalatest._
+import org.scalatest.concurrent.Eventually
+import org.scalatest.concurrent.Timeouts
+
 /**
  * Created by smakhetov on 03.08.2015.
  */
 
-object testApp extends App{
 
-  var message = ""
-  val fileContent = Source.fromFile("in.xml","UTF-8").getLines
-  fileContent.foreach((line: String) => message = message + line.replaceFirst("\\$\\{__UUID}",UUID.randomUUID.toString) + "\n")
-  println(message)
-}
 
-object defObj extends App {
 
-  val conf = ConfigFactory.load()
-
-  val copen = new connectionCreate
-  val connection = copen.connection
-  val session = copen.session
-
-  val purge = new queuePurge(session,"queue:///Q1")
-  val send = new sender(session,"queue:///Q1",conf.getString("files.send"))
-  val recive = new reciever(session,"queue:///Q1",conf.getString("files.receive"))
-
-  val close = new connectionClose(connection,session)
-  }
 
 class connectionCreate {
   val cf: MQQueueConnectionFactory = new MQQueueConnectionFactory
@@ -70,21 +54,45 @@ class sender (session: MQQueueSession, qname: String,sendFile: String){
   fileContent.foreach((line: String) => strMessage = strMessage + line.replaceFirst("\\$\\{__UUID}",UUID.randomUUID.toString) + "\n")
   val message: JMSTextMessage = session.createTextMessage(strMessage).asInstanceOf[JMSTextMessage]
   sender.send(message)
-  println("Sent message:\n" + message)
+  //println("Sent message:\n" + message)
+  println("Send message")
 }
 
-class reciever (session: MQQueueSession, qname: String, receivFile: String) {
+class bytesReceiver(session: MQQueueSession, qname: String, receivFile: String) {
+
   val queue: MQQueue = session.createQueue(qname).asInstanceOf[MQQueue]
   val receiver: MQQueueReceiver = session.createReceiver(queue).asInstanceOf[MQQueueReceiver]
-  val receivedMessage: JMSTextMessage = receiver.receive(10000).asInstanceOf[JMSTextMessage]
- // val receivedMessage: JMSTextMessageMessage = receiver.receive(10000).asInstanceOf[JMSTextMessage]
-  println("\nReceived message:\n" + receivedMessage)
-  println("-------------------------------------------------------------")
-  val recivedText = receivedMessage.getText
-  println(recivedText)
+  val receivedMessage: JMSBytesMessage = receiver.receive(60000).asInstanceOf[JMSBytesMessage]
+
+//  println("\nReceived message:\n" + receivedMessage)
+//  println("-------------------------------------------------------------")
+//  val recivedText = receivedMessage.getText
+//  println(recivedText)
   // FileWriter
   val bw = new BufferedWriter(new FileWriter(new File(receivFile)))
-  bw.write(recivedText)
+  //val arr: Array
+  val mLenght = receivedMessage.getBodyLength.toInt
+  var bArray :Array[Byte] = new Array[Byte](mLenght)
+  receivedMessage.readBytes(bArray,mLenght)
+  val text: String = new String(bArray, "UTF-8")
+  bw.write(text)
+  println("Received message")
+ // bw.write(receivedMessage.getBodyLength.toString)
+  bw.close()
+}
+
+class textReceiver (session: MQQueueSession, qname: String, receivFile: String) {
+  val queue: MQQueue = session.createQueue(qname).asInstanceOf[MQQueue]
+  val receiver: MQQueueReceiver = session.createReceiver(queue).asInstanceOf[MQQueueReceiver]
+  val receivedMessage: JMSTextMessage = receiver.receive(60000).asInstanceOf[JMSTextMessage]
+  // val receivedMessage: JMSTextMessageMessage = receiver.receive(10000).asInstanceOf[JMSTextMessage]
+  println("\nReceived message:\n" + receivedMessage)
+  //  println("-------------------------------------------------------------")
+  //  val recivedText = receivedMessage.getText
+  //  println(recivedText)
+  // FileWriter
+  val bw = new BufferedWriter(new FileWriter(new File(receivFile)))
+  bw.write(receivedMessage.getText)
   bw.close()
 }
 
@@ -93,14 +101,16 @@ class queuePurge(session: MQQueueSession, qname: String) {
   val queue: MQQueue = session.createQueue(qname).asInstanceOf[MQQueue]
   val receiver: MQQueueReceiver = session.createReceiver(queue).asInstanceOf[MQQueueReceiver]
 
-  while(receiver.receive(1000).asInstanceOf[JMSTextMessage]!= null){
+  while(receiver.receive(1000).asInstanceOf[JMSBytesMessage]!= null){
     println("purge message")
   }
 
-
-
-//  while(!queue.isEmpty){
-//    receiver.receive(1000)
-//    println(queue.isEmpty)
+//  class def
+//  {
+//    var length: Int = new Long(message.getBodyLength).intValue
+//    var b: Array[Byte] = new Array[Byte](length)
+//    Nothing Nothing;
+//    var text: String = new String(b, "UTF-8")
 //  }
+
 }

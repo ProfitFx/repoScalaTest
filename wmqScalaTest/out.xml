@@ -4,10 +4,10 @@
 		<wsa:To xmlns:wsa="http://www.w3.org/2005/08/addressing"/>
 		<wsa:From xmlns:wsa="http://www.w3.org/2005/08/addressing">
 			<wsa:Address>EAEU://AM/SR/LEGACY/AKF</wsa:Address>
-			<!--27abdd3c-9243-4cf3-9c6d-d271570c09e6-->
-			<!--ec60d70c-a74b-4cea-a912-b7e8ff875f7c-->
-			<!--3f66e191-01e0-4e56-83ce-0340f19d148f-->
-			<!--7f3ba60e-0cfc-4078-a085-7b3101f9e3fb-->
+			<!--694f569d-ec74-48c6-a046-be4060dd5902-->
+			<!--d1cc58d6-1e32-403d-8a47-91802886b96f-->
+			<!--cc9f650a-743b-471b-bdbd-bbe38826cba6-->
+			<!--e1ed6ea9-d9f7-4878-a7fb-0accbc784a0c-->
 		</wsa:From>
 		<wsa:MessageID xmlns:wsa="http://www.w3.org/2005/08/addressing">urn:uuid:9bae9e1c-22eb-438e-8306-8d74db0181d0</wsa:MessageID>
 		<wsa:Action xmlns:wsa="http://www.w3.org/2005/08/addressing">int://LEGACY/AKF/MESSAGE/result</wsa:Action>
