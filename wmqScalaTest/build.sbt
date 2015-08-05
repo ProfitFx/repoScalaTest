@@ -1,4 +1,4 @@
-name := "wmqScalaTest"
+name := "WmqJms"
 
 version := "1.0"
 
