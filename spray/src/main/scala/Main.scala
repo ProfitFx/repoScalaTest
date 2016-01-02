@@ -18,8 +18,13 @@ object Main extends App with SimpleRoutingApp {
         respondWithMediaType(MediaTypes.`text/xml`){
           complete {printer.format(<root><ID>123</ID><messageID>{juuid}</messageID></root>)
           }
-        }
-        //  }
+        }			
+        //
+		//      path("jpath") {
+        //post { entity(as[String]) {
+        //  order => complete{println(order);"This is a POST request." + order}}
+       // }
+     // }
       }
     }
   }
